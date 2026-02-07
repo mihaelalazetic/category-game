@@ -1,9 +1,14 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './CategorySlots.css'
+import { LanguageContext } from '../context/LanguageContext'
+import { translations, categoryNames } from '../data/translations'
 
 export default function CategorySlots({ categorySlots, topItems, onPlaceCategory, onPlaceItem, draggedCard, completedCategories, isTouchMode, selectedCard, onSlotClick, onSelectItem }) {
   const [dragOverIndex, setDragOverIndex] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
+  const { language } = useContext(LanguageContext)
+  const t = translations[language]
+  const catNames = categoryNames[language]
 
   const playInvalidSound = () => {
     const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -57,11 +62,11 @@ export default function CategorySlots({ categorySlots, topItems, onPlaceCategory
     } else if (draggedCard.type === 'item') {
       // Check if there's a category in this slot
       if (!categorySlots[index]) {
-        setErrorMessage('No category here')
+        setErrorMessage(t.noCategoryHere)
         playInvalidSound()
         setTimeout(() => setErrorMessage(null), 2000)
       } else if (categorySlots[index].id !== draggedCard.category.id) {
-        setErrorMessage(`Need ${categorySlots[index].name}`)
+        setErrorMessage(`${t.needCategory} ${catNames[categorySlots[index].id]}`)
         playInvalidSound()
         setTimeout(() => setErrorMessage(null), 2000)
       } else {
@@ -108,13 +113,13 @@ export default function CategorySlots({ categorySlots, topItems, onPlaceCategory
               } ${category && completedCategories.has(category.id) ? 'completing' : ''}`}
               style={{ background: category.color }}>
                 <div className="category-emoji">{category.emoji}</div>
-                <div className="category-name">{category.name}</div>
+                <div className="category-name">{catNames[category.id]}</div>
                 <div className="item-count">{topItems[index]?.length || 0}/{category.items.length}</div>
               </div>
             </div>
           ) : (
             <div className={`empty-slot ${dragOverIndex === index && draggedCard?.type === 'category' ? 'drag-over' : ''}`}>
-              <span className="slot-text">Drop Category</span>
+              <span className="slot-text">{t.dropCategory}</span>
             </div>
           )}
         </div>

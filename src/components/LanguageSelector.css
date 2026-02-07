@@ -1,0 +1,38 @@
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.lang-select {
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid #d4a574;
+  background: white;
+  color: #6b5f52;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1.2em;
+  font-weight: bold;
+  min-width: 50px;
+  text-align: center;
+}
+
+.lang-select:hover {
+  background: #f9f7f5;
+  border-color: #c69460;
+}
+
+.lang-select:focus {
+  outline: none;
+  border-color: #a68b5b;
+  box-shadow: 0 0 0 2px rgba(212, 165, 116, 0.1);
+}
+
+@media (max-width: 480px) {
+  .lang-select {
+    padding: 3px 4px;
+    font-size: 1.1em;
+    min-width: 45px;
+  }
+}

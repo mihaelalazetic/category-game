@@ -1,8 +1,14 @@
 import './DrawCard.css'
-import { useRef } from 'react'
+import { useRef, useContext } from 'react'
+import { LanguageContext } from '../context/LanguageContext'
+import { translations, categoryNames, itemNames } from '../data/translations'
 
 export default function DrawCard({ card, onDragStart, onCardClick, onDrawCard, deckEmpty, isSelected, isTouchMode }) {
   const cardRef = useRef(null)
+  const { language } = useContext(LanguageContext)
+  const t = translations[language]
+  const catNames = categoryNames[language]
+  const iNames = itemNames[language]
 
   const handleDragStart = (e) => {
     if (card && !isTouchMode) {
@@ -34,8 +40,8 @@ export default function DrawCard({ card, onDragStart, onCardClick, onDrawCard, d
     return (
       <div className="draw-card">
         <div className="empty-deck-message">
-          <div className="empty-deck-text">No more cards!</div>
-          <div className="empty-deck-subtext">All available cards have been drawn</div>
+          <div className="empty-deck-text">{t.noMoreCards}</div>
+          <div className="empty-deck-subtext">{t.allCardsDrawn}</div>
         </div>
       </div>
     )
@@ -65,17 +71,17 @@ export default function DrawCard({ card, onDragStart, onCardClick, onDrawCard, d
           <div className="card-content">
             {isCategory ? (
               <>
-                <div className="item-count-badge">{card.category.items.length} items</div>
+                <div className="item-count-badge">{card.category.items.length} {t.items}</div>
                 <div className="card-emoji">{card.category.emoji}</div>
-                <div className="card-name">{card.category.name}</div>
-                <div className="card-type-label">Category</div>
+                <div className="card-name">{catNames[card.category.id]}</div>
+                <div className="card-type-label">{t.category}</div>
               </>
             ) : (
               <>
                 <div className="card-emoji">{card.item.emoji}</div>
-                <div className="card-name">{card.item.name}</div>
-                <div className="card-category">{card.category.name}</div>
-                <div className="card-type-label">Item</div>
+                <div className="card-name">{iNames[card.item.id]}</div>
+                <div className="card-category">{catNames[card.category.id]}</div>
+                <div className="card-type-label">{t.item}</div>
               </>
             )}
           </div>

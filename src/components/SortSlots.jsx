@@ -1,11 +1,17 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { CATEGORIES } from '../data/categories'
 import './SortSlots.css'
+import { LanguageContext } from '../context/LanguageContext'
+import { translations, categoryNames, itemNames } from '../data/translations'
 
 export default function SortSlots({ sortSlots, categorySlots, onPlaceItem, onPlaceCategory, onDragStart, draggedCard, isTouchMode, selectedCard, onSlotClick, onSelectItem }) {
   const [dragOverIndex, setDragOverIndex] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
   const [errorSlotIndex, setErrorSlotIndex] = useState(null)
+  const { language } = useContext(LanguageContext)
+  const t = translations[language]
+  const catNames = categoryNames[language]
+  const iNames = itemNames[language]
 
   const playInvalidSound = () => {
     const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -72,15 +78,15 @@ export default function SortSlots({ sortSlots, categorySlots, onPlaceItem, onPla
       const hasCategoryInSlot = sortSlots[index].some(item => item.type === 'category')
       
       if (categoryInTopSlot) {
-        setErrorMessage('Item belongs in top slot')
+        setErrorMessage(t.itemBelongsInTop)
       } else if (hasCategoryInSlot) {
-        setErrorMessage('Clear category first')
+        setErrorMessage(t.clearCategoryFirst)
       } else {
         // Different category in slot
         const existingItems = sortSlots[index].filter(item => item.type === 'item')
         if (existingItems.length > 0) {
           const existingCategory = CATEGORIES.find(cat => cat.id === existingItems[0].categoryId)
-          setErrorMessage(`Need ${existingCategory?.name}`)
+          setErrorMessage(`${t.needCategory} ${catNames[existingCategory?.id]}`)
         }
       }
       setErrorSlotIndex(index)
@@ -189,7 +195,7 @@ export default function SortSlots({ sortSlots, categorySlots, onPlaceItem, onPla
 
   return (
     <div className="sort-slots">
-      <div className="sort-label">Sorting Area</div>
+      <div className="sort-label">{t.sortingArea}</div>
       <div className="slots-grid">
         {sortSlots.map((slot, index) => {
           const hasCategory = slot.some(item => item.type === 'category')
@@ -211,7 +217,7 @@ export default function SortSlots({ sortSlots, categorySlots, onPlaceItem, onPla
               )}
               {slot.length === 0 ? (
                 <div className="empty-sort">
-                  <span className="sort-text">Drop here</span>
+                  <span className="sort-text">{t.dropHere}</span>
                 </div>
               ) : hasCategory ? (
                 // Show category card in sort slot
@@ -231,7 +237,7 @@ export default function SortSlots({ sortSlots, categorySlots, onPlaceItem, onPla
                           style={{ background: item.category.color, cursor: isTouchMode ? 'pointer' : 'grab' }}
                         >
                           <div className="sort-cat-emoji">{item.category.emoji}</div>
-                          <div className="sort-cat-name">{item.category.name}</div>
+                          <div className="sort-cat-name">{catNames[item.category.id]}</div>
                         </div>
                       )
                     }
@@ -257,7 +263,7 @@ export default function SortSlots({ sortSlots, categorySlots, onPlaceItem, onPla
                       >
                         <div className="item-badge" style={{ background: category?.color }}>
                           <span className="badge-emoji">{item.emoji}</span>
-                          <span className="badge-name">{item.name}</span>
+                          <span className="badge-name">{iNames[item.id]}</span>
                         </div>
                       </div>
                     )

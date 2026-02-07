@@ -1,11 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { CATEGORIES } from '../data/categories'
 import './GameBoard.css'
 import CategorySlots from './CategorySlots'
 import SortSlots from './SortSlots'
 import DrawCard from './DrawCard'
+import LanguageSelector from './LanguageSelector'
+import { LanguageContext } from '../context/LanguageContext'
+import { translations, categoryNames, itemNames } from '../data/translations'
 
 export default function GameBoard() {
+  const { language } = useContext(LanguageContext)
+  const t = translations[language]
   // Initialize deck with all categories and all items
   const initializeDeck = () => {
     const deck = []
@@ -604,8 +609,11 @@ export default function GameBoard() {
     <div className="game-board">
       <div className="game-container">
         <div className="header-bar">
-          <h1 className="game-title">Category Sort</h1>
-          <div className="move-counter">Moves: {gameState.moves}</div>
+          <h1 className="game-title">{t.gameTitle}</h1>
+          <div className="header-right">
+            <div className="move-counter">{t.moves}: {gameState.moves}</div>
+            <LanguageSelector />
+          </div>
         </div>
 
         <div className="game-layout">
