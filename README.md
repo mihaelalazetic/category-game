@@ -1,71 +1,86 @@
 # 🃏 Category Sort Game  
 
-A calm, puzzle-style sorting game built with **React + Vite**.  
-I made this as a small, thoughtful experiment in game logic, UI interaction, and user experience — not just as a toy, but as a playground for ideas about organization, feedback, and flow.
+A simple sorting game built with **React + Vite**.
 
 👉 **Play it here:**  
 https://mihaelalazetic.github.io/category-game/
 
 ---
 
-## 🎮 Core gameplay  
+## 🎮 What the game is  
 
-You play with a deck of cards that contains:
-- **Category cards** (like Animals, Fruits, Ocean, etc.)  
+Category Sort is a card-based puzzle game where you organize items into the right categories.
+
+You draw cards from a deck that contains:
+- **Category cards** (Animals, Fruits, Ocean, etc.)
 - **Item cards** that belong to those categories  
 
-Your goal is to:
-1. Draw cards from the deck  
-2. Place category cards in the top slots  
-3. Sort matching items underneath them  
-4. Use the bottom slots as temporary “thinking space”  
-5. Complete each category by collecting all its items  
+Your goal is to place each item under its correct category using the available slots.
 
-When a category is complete, it clears — making room for the next one.  
-The game ends when everything is sorted.
+It’s meant to be:
+- easy to understand  
+- relaxed rather than stressful  
+- more about organizing than speed  
 
 ---
 
-## 📱 Responsiveness
+## 🃏 How you play  
 
-The game is designed to feel natural on any device:
+1. Draw a card from the deck  
+2. If it’s a **category**, place it in one of the top slots  
+3. If it’s an **item**, place it under the matching category  
+4. Use the bottom slots as temporary sorting space  
+5. When all items of a category are collected, that category clears  
+6. Keep going until all cards are sorted  
+
+There’s a move counter so you can see how efficiently you played.
+
+---
+
+## 📱 Controls  
 
 **Desktop**
-- Drag & drop with your mouse  
-- Smooth card movement and animations  
+- Drag and drop cards with your mouse  
 
 **Mobile / Tablet**
 - Tap to select a card  
 - Tap again to place it  
-- No awkward dragging — just simple touch controls  
+- No awkward dragging — just simple taps  
+
+The layout adapts to smaller screens.
+
+---
+
+## 🎨 Design  
+
+The game uses:
+- gradient backgrounds  
+- emoji-style cards  
+- simple animations and card flips  
+- color-coded areas for different categories  
+
+The focus is on clarity and a clean, friendly look.
 
 ---
 
 ## 🛠️ Tech details  
 
 Built with:
-
 - **React 19**  
 - **Vite**  
-- **Vanilla CSS (responsive design)**  
-- React hooks: `useState`, `useEffect`  
-- Custom game state that tracks:
-  - deck  
-  - drawn cards  
-  - category slots  
-  - sorting slots  
-  - completed categories  
-  - move count  
+- **CSS (responsive layout)**  
 
-This project was also a fun way for me to practice:
-- game logic in React  
-- state management patterns  
-- interactive UI design  
-- mobile-first thinking  
+State is managed with React hooks (`useState`, `useEffect`) and tracks:
+- the deck  
+- drawn cards  
+- category slots  
+- sorting slots  
+- completed categories  
+- move count  
 
 ---
 
-## ▶️ Run it locally  
+## ▶️ Run locally  
 
 ```bash
 npm install
