@@ -97,5 +97,33 @@ export const CATEGORIES = [
       { id: 'rainbow', name: 'Rainbow', emoji: '🌈' },
       { id: 'star', name: 'Star', emoji: '⭐' },
     ]
+  },
+  {
+    id: 'vehicles',
+    name: 'Vehicles',
+    emoji: '🚗',
+    color: '#ff6b6bd0',
+    items: [
+      { id: 'car', name: 'Car', emoji: '🚗' },
+      { id: 'bus', name: 'Bus', emoji: '🚌' },
+      { id: 'train', name: 'Train', emoji: '🚂' },
+      { id: 'airplane', name: 'Airplane', emoji: '✈️' },
+      { id: 'ship', name: 'Ship', emoji: '🚢' },
+      { id: 'bicycle', name: 'Bicycle', emoji: '🚲' },
+      { id: 'truck', name: 'Truck', emoji: '🚚' },
+      { id: 'helicopter', name: 'Helicopter', emoji: '🚁' },
+    ]
+  },
+  {
+    id: 'food',
+    name: 'Food',
+    emoji: '🍕',
+    color: '#ffa500d0',
+    items: [
+      { id: 'pizza', name: 'Pizza', emoji: '🍕' },
+      { id: 'burger', name: 'Burger', emoji: '🍔' },
+      { id: 'cake', name: 'Cake', emoji: '🍰' },
+      { id: 'ice-cream', name: 'Ice Cream', emoji: '🍦' },
+    ]
   }
 ]

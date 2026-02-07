@@ -26,9 +26,9 @@ export const translations = {
     sortingArea: 'Област за Сортирање',
     dropHere: 'Додади предмет или категорија',
     noCategoryHere: 'Нема категорија овде',
-    needCategory: 'Треба ти',
+    needCategory: 'Ти треба',
     needSameCategory: 'Треба иста категорија',
-    clearCategoryFirst: 'Прво очисти категорија',
+    clearCategoryFirst: 'Прво собери ја категоријата',
     itemBelongsInTop: 'Предметот е во горниот простор',
     noMoreCards: 'Нема повеќе карти!',
     allCardsDrawn: 'Сите достапни карти се извлечени',
@@ -51,6 +51,8 @@ export const categoryNames = {
     ocean: 'Ocean',
     plants: 'Plants',
     sky: 'Sky',
+    vehicles: 'Vehicles',
+    food: 'Food',
   },
   mk: {
     pig: 'Прасе',
@@ -61,6 +63,8 @@ export const categoryNames = {
     ocean: 'Океан',
     plants: 'Растенија',
     sky: 'Небо',
+    vehicles: 'Возила',
+    food: 'Храна',
   }
 }
 
@@ -109,6 +113,20 @@ export const itemNames = {
     'cloud': 'Cloud',
     'rainbow': 'Rainbow',
     'star': 'Star',
+    // Vehicles items
+    'car': 'Car',
+    'bus': 'Bus',
+    'train': 'Train',
+    'airplane': 'Airplane',
+    'ship': 'Ship',
+    'bicycle': 'Bicycle',
+    'truck': 'Truck',
+    'helicopter': 'Helicopter',
+    // Food items
+    'pizza': 'Pizza',
+    'burger': 'Burger',
+    'cake': 'Cake',
+    'ice-cream': 'Ice Cream',
   },
   mk: {
     // Прасе предмети
@@ -125,7 +143,7 @@ export const itemNames = {
     'apple': 'Јаболко',
     'banana': 'Банана',
     'orange': 'Портокал',
-    'grape': 'Грозде',
+    'grape': 'Грозје',
     // Животни предмети
     'dog': 'Куче',
     'cat': 'Мачка',
@@ -135,7 +153,7 @@ export const itemNames = {
     'bee': 'Пчела',
     // Боја предмети
     'red': 'Црвено',
-    'blue': 'Синьо',
+    'blue': 'Сино',
     'yellow': 'Жолто',
     // Океан предмети
     'wave': 'Бран',
@@ -152,7 +170,21 @@ export const itemNames = {
     'sun': 'Сонце',
     'moon': 'Месечина',
     'cloud': 'Облак',
-    'rainbow': 'Дуга',
+    'rainbow': 'Виножито',
     'star': 'Ѕвезда',
+    // Возила предмети
+    'car': 'Автомобил',
+    'bus': 'Автобус',
+    'train': 'Воз',
+    'airplane': 'Авион',
+    'ship': 'Брод',
+    'bicycle': 'Велосипед',
+    'truck': 'Камион',
+    'helicopter': 'Хеликоптер',
+    // Храна предмети
+    'pizza': 'Пица',
+    'burger': 'Бургер',
+    'cake': 'Торта',
+    'ice-cream': 'Сладолед',
   }
 }
