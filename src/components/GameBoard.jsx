@@ -609,7 +609,7 @@ export default function GameBoard() {
     <div className="game-board">
       <div className="game-container">
         <div className="header-bar">
-          <h1 className="game-title">{t.gameTitle}</h1>
+          <h1 className="game-title"><img src={'./logo '+language+'.png'}/></h1>
           <div className="header-right">
             <div className="move-counter">{t.moves}: {gameState.moves}</div>
             <LanguageSelector />

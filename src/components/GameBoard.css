@@ -43,7 +43,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 0.1rem 15px;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 25px;
   backdrop-filter: blur(10px);
@@ -59,7 +59,7 @@
   gap: 8px;
 }
 
-.game-title {
+/* .game-title {
   text-align: start;
   flex: 1;
   font-size: 2.5em;
@@ -67,6 +67,14 @@
   color: #6b5f52;
   letter-spacing: 2px;
   text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+  margin: 0;
+} */
+
+.game-title img {
+  height: 60px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .move-counter {
@@ -403,11 +411,11 @@
   }
 
   .header-bar {
-    padding: 12px 15px;
+    padding:0 ;
   }
 
   .game-title {
-    font-size: 1.8em;
+    /* font-size: 1.8em; */
   }
 
   .move-counter {
